@@ -1,5 +1,5 @@
+pluginManagement {
+    repositories { google(); mavenCentral(); gradlePluginPortal() }
+}
 rootProject.name = 'TaskwarriorMobile'
-apply from: file("../node_modules/react-native/react.gradle")
-apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle")
-applyNativeModulesSettingsGradle(settings)
 include ':app'
