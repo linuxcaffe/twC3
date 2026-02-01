@@ -1,0 +1,15 @@
+{
+  "name": "TaskwarriorRevival",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "test": "node simple-test.js"
+  },
+  "dependencies": {
+    "react": "17.0.2",
+    "react-native": "0.68.0"
+  }
+}
