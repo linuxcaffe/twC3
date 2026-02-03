@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.2.0" type="partial_results">
+    <map id="UnsafeIntentLaunch">
+            <map id="unprotected">
+                <entry
+                    name="com.taskwarriormobile.MainActivity"
+                    boolean="true"/>
+            </map>
+    </map>
+    <map id="UnusedResources">
+        <location id="R.string.task_list_title"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="4"
+            column="13"
+            startOffset="139"
+            endLine="4"
+            endColumn="35"
+            endOffset="161"/>
+        <location id="R.color.purple_200"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="3"
+            column="12"
+            startOffset="62"
+            endLine="3"
+            endColumn="29"
+            endOffset="79"/>
+        <entry
+            name="model"
+            string="attr[colorPrimaryVariant(R)],color[purple_200(D),black(U),teal_200(U),white(U),teal_700(U),purple_700(U),purple_500(U)],drawable[ic_launcher_foreground(U)],id[welcomeText(D),taskOutput(U),refreshButton(U)],layout[activity_main(U)],mipmap[ic_launcher(U)],string[refresh(U),task_output_placeholder(U),app_name(U),hello_world(D),add_task(D),task_list_title(D)],style[Theme_TaskwarriorMobile(U),Theme_MaterialComponents_DayNight_NoActionBar(R)];c^e^f,d^7^8,14^15^7^6^4^3^5^2^0;;;"/>
+        <location id="R.string.add_task"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="5"
+            column="13"
+            startOffset="194"
+            endLine="5"
+            endColumn="28"
+            endOffset="209"/>
+        <location id="R.string.hello_world"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="3"
+            column="13"
+            startOffset="80"
+            endLine="3"
+            endColumn="31"
+            endOffset="98"/>
+    </map>
+
+</incidents>

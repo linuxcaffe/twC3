@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Taskwarrior Mobile</string>
+    <string name="hello_world">Hello Taskwarrior!</string>
+    <string name="task_list_title">Your Tasks</string>
+    <string name="add_task">Add Task</string>
+    <string name="refresh">Refresh</string>
+    <string name="task_output_placeholder">Tasks will appear here...</string>
+</resources>

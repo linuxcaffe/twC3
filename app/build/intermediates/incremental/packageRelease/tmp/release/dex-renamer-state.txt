@@ -1,0 +1,4 @@
+#Tue Feb 03 17:00:19 EST 2026
+base.0=/home/djp/dev/twC3/app/build/intermediates/dex/release/mergeDexRelease/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

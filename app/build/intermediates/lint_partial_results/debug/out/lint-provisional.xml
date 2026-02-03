@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.2.0" type="conditional_incidents">
+
+    <incident
+        id="UnusedAttribute"
+        severity="warning"
+        message="">
+        <fix-data minSdk="fffffffffff00000" requiresApi="ffffffffffc00000"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*manifest*0}"
+            line="12"
+            column="9"
+            startOffset="413"
+            endLine="12"
+            endColumn="44"
+            endOffset="448"/>
+        <map>
+            <api-levels id="minSdk"
+                value="fffffffffff00000"/>
+            <api-levels id="requiresApi"
+                value="ffffffffffc00000"/>
+            <entry
+                name="message"
+                string="Attribute `usesCleartextTraffic` is only used in API level 23 and higher (current min is %1$s)"/>
+        </map>
+    </incident>
+
+    <incident
+        id="ObsoleteSdkInt"
+        severity="warning"
+        message="Unnecessary; SDK_INT is always >= 21">
+        <fix-replace
+            description="Delete tools:targetApi"
+            replacement="">
+            <range
+                file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/styles.xml"
+                startOffset="716"
+                endOffset="735"/>
+        </fix-replace>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/styles.xml"
+            line="14"
+            column="45"
+            startOffset="716"
+            endLine="14"
+            endColumn="64"
+            endOffset="735"/>
+        <map>
+            <condition minGE="fffffffffff00000"/>
+        </map>
+    </incident>
+
+</incidents>
