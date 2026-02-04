@@ -3077,6 +3077,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addButton
 id alertTitle
 id aligned
 id all
@@ -3314,6 +3315,7 @@ id navigation_header_container
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
+id newTaskInput
 id noScroll
 id noState
 id none
@@ -3492,7 +3494,6 @@ id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
-id welcomeText
 id west
 id withText
 id with_icon
@@ -3722,7 +3723,6 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
-string add_task
 string androidx_startup
 string app_name
 string appbar_scrolling_view_behavior
@@ -3741,7 +3741,6 @@ string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
-string hello_world
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
@@ -3857,7 +3856,6 @@ string searchview_navigation_content_description
 string side_sheet_accessibility_pane_title
 string side_sheet_behavior
 string status_bar_notification_info_overflow
-string task_list_title
 string task_output_placeholder
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

@@ -1,9 +1,7 @@
 package com.taskwarriormobile;
 
 import android.content.Context;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Taskwarrior {
     private Context context;
@@ -12,29 +10,57 @@ public class Taskwarrior {
         this.context = context;
     }
     
-    public List<String> getTasks() {
-        List<String> tasks = new ArrayList<>();
-        // TODO: Implement Taskwarrior integration
-        tasks.add("1. Sample task - Update Taskwarrior integration");
-        tasks.add("2. Another task - Connect to local Taskwarrior data");
-        tasks.add("3. Third task - Implement task management UI");
+    public List<Task> getTasks() {
+        // For now, return sample tasks
+        List<Task> tasks = new ArrayList<>();
+        tasks.add(new Task("1", "Install Taskwarrior on Android", "pending", "H", "setup"));
+        tasks.add(new Task("2", "Configure taskrc file", "pending", "M", "setup"));
+        tasks.add(new Task("3", "Add first real task", "pending", "M", null));
+        tasks.add(new Task("4", "Test sync with server", "completed", "L", "sync"));
+        tasks.add(new Task("5", "Customize mobile interface", "pending", "L", "ui"));
         return tasks;
     }
     
-    public String executeCommand(String command) {
-        try {
-            Process process = Runtime.getRuntime().exec(command);
-            BufferedReader reader = new BufferedReader(
-                new InputStreamReader(process.getInputStream()));
-            StringBuilder output = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                output.append(line).append("\n");
+    public List<Task> getPendingTasks() {
+        List<Task> allTasks = getTasks();
+        List<Task> pending = new ArrayList<>();
+        for (Task task : allTasks) {
+            if ("pending".equals(task.status)) {
+                pending.add(task);
             }
-            process.waitFor();
-            return output.toString();
-        } catch (Exception e) {
-            return "Error: " + e.getMessage();
+        }
+        return pending;
+    }
+    
+    public String addTask(String description) {
+        // Simulate adding a task
+        return "Added: " + description;
+    }
+    
+    public String completeTask(String uuid) {
+        return "Completed: " + uuid;
+    }
+    
+    public static class Task {
+        public String uuid;
+        public String description;
+        public String status;
+        public String priority;
+        public String project;
+        
+        public Task(String uuid, String description, String status, String priority, String project) {
+            this.uuid = uuid;
+            this.description = description;
+            this.status = status;
+            this.priority = priority;
+            this.project = project;
+        }
+        
+        @Override
+        public String toString() {
+            String prio = priority != null ? "[" + priority + "] " : "";
+            String proj = project != null ? " +" + project : "";
+            return prio + description + proj;
         }
     }
 }

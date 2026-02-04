@@ -7,12 +7,9 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
-    <string name="add_task">Add Task</string>
-    <string name="app_name">Taskwarrior Mobile</string>
-    <string name="hello_world">Hello Taskwarrior!</string>
-    <string name="refresh">Refresh</string>
-    <string name="task_list_title">Your Tasks</string>
-    <string name="task_output_placeholder">Tasks will appear here...</string>
+    <string name="app_name">Taskwarrior Mobile v2</string>
+    <string name="refresh">Refresh Tasks NOW</string>
+    <string name="task_output_placeholder">Ready to load tasks...</string>
     <style name="Theme.TaskwarriorMobile" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         
         <item name="colorPrimary">@color/purple_500</item>
