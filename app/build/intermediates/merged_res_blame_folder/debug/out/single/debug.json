@@ -1,5 +1,9 @@
 [
     {
+        "merged": "com.taskwarriormobile.app-merged_res-28:/layout_task_item.xml.flat",
+        "source": "com.taskwarriormobile.app-main-30:/layout/task_item.xml"
+    },
+    {
         "merged": "com.taskwarriormobile.app-merged_res-28:/layout_activity_main.xml.flat",
         "source": "com.taskwarriormobile.app-main-30:/layout/activity_main.xml"
     },

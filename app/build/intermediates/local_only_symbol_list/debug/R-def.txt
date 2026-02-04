@@ -9,10 +9,14 @@ color teal_700
 color white
 drawable ic_launcher_foreground
 id addButton
+id completeButton
+id debugButton
 id newTaskInput
 id refreshButton
+id taskDescription
 id taskOutput
 layout activity_main
+layout task_item
 mipmap ic_launcher
 string app_name
 string refresh

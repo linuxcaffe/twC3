@@ -3128,6 +3128,7 @@ id clip_vertical
 id clockwise
 id closest
 id collapseActionView
+id completeButton
 id compress
 id confirm_button
 id constraint
@@ -3145,6 +3146,7 @@ id custom
 id customPanel
 id cut
 id date_picker_actions
+id debugButton
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
@@ -3447,6 +3449,7 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
+id taskDescription
 id taskOutput
 id text
 id text2
@@ -3694,6 +3697,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+layout task_item
 mipmap ic_launcher
 plurals mtrl_badge_content_description
 string abc_action_bar_home_description
