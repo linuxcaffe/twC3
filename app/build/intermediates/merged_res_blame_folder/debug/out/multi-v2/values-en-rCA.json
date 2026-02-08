@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.taskwarriormobile.app-mergeDebugResources-18:/values-en-rCA/values-en-rCA.xml",
+            "outputFile": "com.taskwarriormobile.app-mergeDebugResources-26:/values-en-rCA/values-en-rCA.xml",
             "map": [
                 {
                     "source": "/home/djp/.gradle/caches/transforms-3/edc73e7e26367f111e92d61e036d7175/transformed/core-1.9.0/res/values-en-rCA/values-en-rCA.xml",

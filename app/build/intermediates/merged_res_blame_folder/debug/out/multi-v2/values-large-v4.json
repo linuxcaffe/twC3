@@ -1,8 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "com.taskwarriormobile.app-mergeDebugResources-18:/values-large-v4/values-large-v4.xml",
+            "outputFile": "com.taskwarriormobile.app-mergeDebugResources-26:/values-large-v4/values-large-v4.xml",
             "map": [
+                {
+                    "source": "/home/djp/.gradle/caches/transforms-3/116af97fdeab0149b5314c6a6d28c9ae/transformed/material-1.9.0/res/values-large-v4/values-large-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,10",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,177,311,752",
+                        "endLines": "2,3,9,15",
+                        "endColumns": "121,133,10,10",
+                        "endOffsets": "172,306,747,1190"
+                    },
+                    "to": {
+                        "startLines": "11,12,13,19",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "752,874,1008,1449",
+                        "endLines": "11,12,18,24",
+                        "endColumns": "121,133,10,10",
+                        "endOffsets": "869,1003,1444,1887"
+                    }
+                },
                 {
                     "source": "/home/djp/.gradle/caches/transforms-3/41c84503ed89e01085870818578f58e6/transformed/appcompat-1.6.1/res/values-large-v4/values-large-v4.xml",
                     "from": {

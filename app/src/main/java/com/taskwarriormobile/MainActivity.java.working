@@ -1,0 +1,162 @@
+package com.taskwarriormobile;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+import java.io.*;
+
+public class MainActivity extends Activity {
+    private static final String TAG = "MainActivity";
+    private File taskBinary;
+    private File taskDataDir;
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.d(TAG, "!!!!!!!!!! TW-C3 APP STARTING !!!!!!!!!!");
+        
+        // Setup files
+        taskBinary = new File(getFilesDir(), "task");
+        taskDataDir = new File(getFilesDir(), "taskdata");
+        
+        // Create simple UI
+        TextView tv = new TextView(this);
+        tv.setText("Taskwarrior Mobile v1.0\n\nInitializing...");
+        tv.setTextSize(18);
+        tv.setPadding(50, 50, 50, 50);
+        setContentView(tv);
+        
+        // Initialize in background
+        new Thread(() -> {
+            try {
+                String result = initializeTaskwarrior();
+                final String displayText = result;
+                runOnUiThread(() -> {
+                    tv.setText(displayText);
+                    tv.setOnClickListener(v -> testAddTask(tv));
+                });
+                
+            } catch (Exception e) {
+                final String error = "Error: " + e.getMessage();
+                Log.e(TAG, error, e);
+                runOnUiThread(() -> tv.setText(error));
+            }
+        }).start();
+        
+        Log.d(TAG, "!!!!!!!!!! INIT THREAD STARTED !!!!!!!!!!");
+    }
+    
+    private String initializeTaskwarrior() {
+        try {
+            // 1. Create data directory
+            if (!taskDataDir.exists()) {
+                taskDataDir.mkdirs();
+            }
+            
+            // 2. Extract binary if needed
+            if (!taskBinary.exists() || taskBinary.length() == 0) {
+                Log.d(TAG, "Extracting binary...");
+                InputStream in = getAssets().open("bin/arm64-v8a/task");
+                OutputStream out = new FileOutputStream(taskBinary);
+                
+                byte[] buffer = new byte[1024];
+                int length;
+                while ((length = in.read(buffer)) > 0) {
+                    out.write(buffer, 0, length);
+                }
+                in.close();
+                out.close();
+                
+                // Make executable
+                if (!taskBinary.setExecutable(true)) {
+                    // Fallback to chmod
+                    Runtime.getRuntime().exec(
+                        new String[]{"chmod", "755", taskBinary.getAbsolutePath()}
+                    ).waitFor();
+                }
+                Log.d(TAG, "Binary extracted: " + taskBinary.getAbsolutePath());
+            }
+            
+            // 3. Test execution
+            String version = executeTaskCommand("--version");
+            Log.d(TAG, "Version check: " + version);
+            
+            if (version.contains("Taskwarrior")) {
+                String tasks = executeTaskCommand("list");
+                if (tasks == null || tasks.isEmpty() || tasks.contains("No matches")) {
+                    tasks = "No tasks yet. Tap to add your first task!";
+                }
+                
+                return "✓ TASKWARRIOR MOBILE READY!\n\n" +
+                       "Version: " + version + "\n\n" +
+                       "Your Tasks:\n" + tasks + "\n\n" +
+                       "Tap screen to add test task";
+            } else {
+                return "✗ Failed to get version:\n" + version;
+            }
+            
+        } catch (Exception e) {
+            Log.e(TAG, "Init failed: " + e.getMessage(), e);
+            return "Initialization failed:\n" + e.getMessage();
+        }
+    }
+    
+    private String executeTaskCommand(String command) {
+        try {
+            // Use sh -c like in SimpleTest (we know this works!)
+            String cmd = taskBinary.getAbsolutePath() + 
+                        " rc.data.location=" + taskDataDir.getAbsolutePath() +
+                        " " + command;
+            
+            Log.d(TAG, "Executing: " + cmd);
+            Process p = Runtime.getRuntime().exec(new String[]{"sh", "-c", cmd});
+            
+            BufferedReader reader = new BufferedReader(
+                new InputStreamReader(p.getInputStream())
+            );
+            StringBuilder output = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                output.append(line).append("\n");
+            }
+            
+            p.waitFor();
+            return output.toString().trim();
+            
+        } catch (Exception e) {
+            Log.e(TAG, "Execute failed: " + e.getMessage(), e);
+            return "Error: " + e.getMessage();
+        }
+    }
+    
+    private void testAddTask(TextView tv) {
+        tv.setText("Adding test task...");
+        new Thread(() -> {
+            try {
+                String result = executeTaskCommand("add \"First task from twC3!\"");
+                String tasks = executeTaskCommand("list");
+                
+                final String displayText = "✓ Task added!\n\n" +
+                                         "Result: " + result + "\n\n" +
+                                         "All tasks:\n" + tasks + "\n\n" +
+                                         "Tap to add another...";
+                
+                runOnUiThread(() -> {
+                    tv.setText(displayText);
+                    tv.setOnClickListener(v -> testAddTask(tv));
+                });
+                
+            } catch (Exception e) {
+                final String error = "Error adding task: " + e.getMessage();
+                runOnUiThread(() -> tv.setText(error));
+            }
+        }).start();
+    }
+    
+    @Override
+    protected void onDestroy() {
+        Log.d(TAG, "!!!!!!!!!! APP SHUTDOWNNNN !!!!!!!!!!");
+        super.onDestroy();
+    }
+}

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.taskwarriormobile.app-mergeDebugResources-18:/values-ldltr-v21/values-ldltr-v21.xml",
+            "outputFile": "com.taskwarriormobile.app-mergeDebugResources-26:/values-ldltr-v21/values-ldltr-v21.xml",
             "map": [
                 {
                     "source": "/home/djp/.gradle/caches/transforms-3/41c84503ed89e01085870818578f58e6/transformed/appcompat-1.6.1/res/values-ldltr-v21/values-ldltr-v21.xml",
