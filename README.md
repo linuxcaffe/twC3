@@ -8,7 +8,8 @@ A modern Android native app for Taskwarrior task management.
 - ✅ Taskwarrior integration skeleton
 - ⚠️ Needs Taskwarrior native integration
 
- <img width="164" height="164" alt="twC3-download" src="https://github.com/user-attachments/assets/2022671d-9940-469f-aa78-d437f590646b" />
+ <img width="164" height="164" alt="twC3-download" src="https://github.com/user-attachments/assets/d960dacc-fb45-419a-9d0b-522905702cce" />
+
 
   https://github.com/linuxcaffe/twC3/releases/download/v0.1.0-alpha/app-debug.apk
 
