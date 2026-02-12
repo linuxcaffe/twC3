@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.taskwarriormobile.app-mergeDebugResources-26:/values-v17/values-v17.xml",
+            "outputFile": "com.taskwarriormobile.app-mergeDebugResources-27:/values-v17/values-v17.xml",
             "map": [
                 {
-                    "source": "/home/djp/.gradle/caches/transforms-3/41c84503ed89e01085870818578f58e6/transformed/appcompat-1.6.1/res/values-v17/values-v17.xml",
+                    "source": "/home/djp/.gradle/caches/transforms-3/722aeb917e7cb0ca4fa93649c1bd9b26/transformed/appcompat-1.6.1/res/values-v17/values-v17.xml",
                     "from": {
                         "startLines": "2,5,9,12,15,18,22,25,29,33,37,40,43,46,50,53,57",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

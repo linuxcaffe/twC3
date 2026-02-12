@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.taskwarriormobile"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="3"
+    android:versionName="2.6.2.3" >
 
     <uses-sdk
         android:minSdkVersion="21"
@@ -18,25 +18,18 @@
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
-        android:extractNativeLibs="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Taskwarrior Mobile"
         android:theme="@style/Theme.TaskwarriorMobile" >
         <activity
             android:name="com.taskwarriormobile.MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.TaskwarriorMobile" >
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- Keep SimpleTest for reference -->
-        <activity
-            android:name="com.taskwarriormobile.SimpleTestActivity"
-            android:exported="false" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

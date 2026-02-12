@@ -10,8 +10,8 @@ android {
         applicationId "com.taskwarriormobile"
         minSdk 21
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "2.6.2.3"
     }
 
     buildTypes {
@@ -28,12 +28,7 @@ android {
 }
 
 dependencies {
-    // Core Android
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    
-    // Material Components (fixes the theme error)
     implementation 'com.google.android.material:material:1.9.0'
-    
-    // ConstraintLayout (optional)
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 }

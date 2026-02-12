@@ -1,87 +1,78 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.taskwarriormobile"
-4    android:versionCode="1"
-5    android:versionName="1.0" >
+4    android:versionCode="3"
+5    android:versionName="2.6.2.3" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
+8-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="33" />
+9-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml
 10
 11    <permission
-11-->[androidx.core:core:1.9.0] /home/djp/.gradle/caches/transforms-3/edc73e7e26367f111e92d61e036d7175/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+11-->[androidx.core:core:1.9.0] /home/djp/.gradle/caches/transforms-3/ebcc01801558a7131546317bf5596cb6/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
 12        android:name="com.taskwarriormobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-12-->[androidx.core:core:1.9.0] /home/djp/.gradle/caches/transforms-3/edc73e7e26367f111e92d61e036d7175/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+12-->[androidx.core:core:1.9.0] /home/djp/.gradle/caches/transforms-3/ebcc01801558a7131546317bf5596cb6/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
 13        android:protectionLevel="signature" />
-13-->[androidx.core:core:1.9.0] /home/djp/.gradle/caches/transforms-3/edc73e7e26367f111e92d61e036d7175/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+13-->[androidx.core:core:1.9.0] /home/djp/.gradle/caches/transforms-3/ebcc01801558a7131546317bf5596cb6/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
 14
 15    <uses-permission android:name="com.taskwarriormobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-15-->[androidx.core:core:1.9.0] /home/djp/.gradle/caches/transforms-3/edc73e7e26367f111e92d61e036d7175/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
-15-->[androidx.core:core:1.9.0] /home/djp/.gradle/caches/transforms-3/edc73e7e26367f111e92d61e036d7175/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+15-->[androidx.core:core:1.9.0] /home/djp/.gradle/caches/transforms-3/ebcc01801558a7131546317bf5596cb6/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+15-->[androidx.core:core:1.9.0] /home/djp/.gradle/caches/transforms-3/ebcc01801558a7131546317bf5596cb6/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
 16
 17    <application
-17-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:5:5-27:19
+17-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:5:5-21:19
 18        android:allowBackup="true"
 18-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:6:9-35
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-19-->[androidx.core:core:1.9.0] /home/djp/.gradle/caches/transforms-3/edc73e7e26367f111e92d61e036d7175/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+19-->[androidx.core:core:1.9.0] /home/djp/.gradle/caches/transforms-3/ebcc01801558a7131546317bf5596cb6/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
 20        android:debuggable="true"
-21        android:extractNativeLibs="true"
-22        android:icon="@mipmap/ic_launcher"
-22-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:7:9-43
-23        android:label="@string/app_name"
-23-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:8:9-41
-24        android:theme="@style/Theme.TaskwarriorMobile" >
-24-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:9:9-55
-25        <activity
-25-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:12:9-20:20
-26            android:name="com.taskwarriormobile.MainActivity"
-26-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:13:13-41
-27            android:exported="true"
-27-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:14:13-36
-28            android:theme="@style/Theme.TaskwarriorMobile" >
-28-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:15:13-59
-29            <intent-filter>
-29-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:16:13-19:29
-30                <action android:name="android.intent.action.MAIN" />
-30-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:17:17-69
-30-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:17:25-66
-31
-32                <category android:name="android.intent.category.LAUNCHER" />
-32-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:18:17-77
-32-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:18:27-74
-33            </intent-filter>
-34        </activity>
-35
-36        <!-- Keep SimpleTest for reference -->
-37        <activity
-37-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:23:9-25:40
-38            android:name="com.taskwarriormobile.SimpleTestActivity"
-38-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:24:13-47
-39            android:exported="false" />
-39-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:25:13-37
-40
-41        <provider
-41-->[androidx.emoji2:emoji2:1.2.0] /home/djp/.gradle/caches/transforms-3/861fc2a662298d94a03116b2941ad17f/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
-42            android:name="androidx.startup.InitializationProvider"
-42-->[androidx.emoji2:emoji2:1.2.0] /home/djp/.gradle/caches/transforms-3/861fc2a662298d94a03116b2941ad17f/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
-43            android:authorities="com.taskwarriormobile.androidx-startup"
-43-->[androidx.emoji2:emoji2:1.2.0] /home/djp/.gradle/caches/transforms-3/861fc2a662298d94a03116b2941ad17f/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
-44            android:exported="false" >
-44-->[androidx.emoji2:emoji2:1.2.0] /home/djp/.gradle/caches/transforms-3/861fc2a662298d94a03116b2941ad17f/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
-45            <meta-data
-45-->[androidx.emoji2:emoji2:1.2.0] /home/djp/.gradle/caches/transforms-3/861fc2a662298d94a03116b2941ad17f/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
-46                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-46-->[androidx.emoji2:emoji2:1.2.0] /home/djp/.gradle/caches/transforms-3/861fc2a662298d94a03116b2941ad17f/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
-47                android:value="androidx.startup" />
-47-->[androidx.emoji2:emoji2:1.2.0] /home/djp/.gradle/caches/transforms-3/861fc2a662298d94a03116b2941ad17f/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
-48            <meta-data
-48-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/djp/.gradle/caches/transforms-3/fd8999af8406ef3825bfc849da03be35/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
-49                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-49-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/djp/.gradle/caches/transforms-3/fd8999af8406ef3825bfc849da03be35/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
-50                android:value="androidx.startup" />
-50-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/djp/.gradle/caches/transforms-3/fd8999af8406ef3825bfc849da03be35/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
-51        </provider>
-52    </application>
-53
-54</manifest>
+21        android:icon="@mipmap/ic_launcher"
+21-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:7:9-43
+22        android:label="Taskwarrior Mobile"
+22-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:8:9-43
+23        android:theme="@style/Theme.TaskwarriorMobile" >
+23-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:9:9-55
+24        <activity
+24-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:12:9-19:20
+25            android:name="com.taskwarriormobile.MainActivity"
+25-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:13:13-41
+26            android:exported="true" >
+26-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:14:13-36
+27            <intent-filter>
+27-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:15:13-18:29
+28                <action android:name="android.intent.action.MAIN" />
+28-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:16:17-69
+28-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:16:25-66
+29
+30                <category android:name="android.intent.category.LAUNCHER" />
+30-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:17:17-77
+30-->/home/djp/dev/twC3/app/src/main/AndroidManifest.xml:17:27-74
+31            </intent-filter>
+32        </activity>
+33
+34        <provider
+34-->[androidx.emoji2:emoji2:1.2.0] /home/djp/.gradle/caches/transforms-3/8b06aa6e9a77db041038b7731b098d8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+35            android:name="androidx.startup.InitializationProvider"
+35-->[androidx.emoji2:emoji2:1.2.0] /home/djp/.gradle/caches/transforms-3/8b06aa6e9a77db041038b7731b098d8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+36            android:authorities="com.taskwarriormobile.androidx-startup"
+36-->[androidx.emoji2:emoji2:1.2.0] /home/djp/.gradle/caches/transforms-3/8b06aa6e9a77db041038b7731b098d8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+37            android:exported="false" >
+37-->[androidx.emoji2:emoji2:1.2.0] /home/djp/.gradle/caches/transforms-3/8b06aa6e9a77db041038b7731b098d8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+38            <meta-data
+38-->[androidx.emoji2:emoji2:1.2.0] /home/djp/.gradle/caches/transforms-3/8b06aa6e9a77db041038b7731b098d8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+39                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+39-->[androidx.emoji2:emoji2:1.2.0] /home/djp/.gradle/caches/transforms-3/8b06aa6e9a77db041038b7731b098d8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+40                android:value="androidx.startup" />
+40-->[androidx.emoji2:emoji2:1.2.0] /home/djp/.gradle/caches/transforms-3/8b06aa6e9a77db041038b7731b098d8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+41            <meta-data
+41-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/djp/.gradle/caches/transforms-3/f9b3545c24b113cebf3bb06cd1d41c02/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+42                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+42-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/djp/.gradle/caches/transforms-3/f9b3545c24b113cebf3bb06cd1d41c02/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+43                android:value="androidx.startup" />
+43-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/djp/.gradle/caches/transforms-3/f9b3545c24b113cebf3bb06cd1d41c02/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+44        </provider>
+45    </application>
+46
+47</manifest>

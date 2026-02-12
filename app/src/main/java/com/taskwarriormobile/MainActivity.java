@@ -1,101 +1,129 @@
 package com.taskwarriormobile;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.ScrollView;
+import androidx.appcompat.app.AppCompatActivity;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
-public class MainActivity extends Activity {
-    private static final String TAG = "TW_APP";
-    private TaskwarriorHelper taskHelper;
+public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "TW_MAIN";
     
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Log.d(TAG, "Starting Taskwarrior Mobile");
-        
-        // Create simple UI
-        TextView tv = new TextView(this);
-        tv.setText("Taskwarrior Mobile\n\nLoading...");
-        tv.setTextSize(20);
-        tv.setPadding(40, 40, 40, 40);
-        setContentView(tv);
-        
-        // Initialize helper
-        taskHelper = new TaskwarriorHelper(this);
-        
-        // Setup in background
-        new Thread(() -> initTaskwarrior(tv)).start();
-    }
+    private TextView taskOutput;
+    private EditText newTaskInput;
+    private Button addButton;
+    private Button debugButton;
+    private Button refreshButton;
+    private ScrollView scrollView;
+    private TaskwarriorBundled taskwarrior;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    // Initialize views with correct IDs from your layout
+    taskOutput = findViewById(R.id.taskOutput);
+    newTaskInput = findViewById(R.id.newTaskInput);
+    addButton = findViewById(R.id.addButton);
+    debugButton = findViewById(R.id.debugButton);
+    refreshButton = findViewById(R.id.refreshButton);
+    scrollView = findViewById(R.id.scrollView);
     
-    private void initTaskwarrior(TextView tv) {
-        try {
-            updateUI(tv, "Setting up...");
-            
-            // Setup Taskwarrior
-            if (!taskHelper.setup()) {
-                updateUI(tv, "Setup failed!");
-                return;
-            }
-            
-            updateUI(tv, "Testing Taskwarrior...");
-            
-            // Get version
-            String version = taskHelper.getVersion();
-            Log.d(TAG, "Version result: " + version);
-            
-            if (version.contains("Taskwarrior")) {
-                // Get initial task list
-                String tasks = taskHelper.listTasks();
-                if (tasks == null || tasks.isEmpty()) {
-                    tasks = "No tasks yet";
-                }
-                
-                final String message = "✓ TASKWARRIOR READY!\n\n" +
-                                     version + "\n\n" +
-                                     "Tasks:\n" + tasks + "\n\n" +
-                                     "Tap to add test task";
-                
-                updateUI(tv, message);
-                setClickHandler(tv);
-                
-            } else {
-                updateUI(tv, "Failed: " + version + "\n\nTap to retry");
-                setClickHandler(tv);
-            }
-            
-        } catch (Exception e) {
-            updateUI(tv, "Error: " + e.getMessage());
+    // Initialize Taskwarrior
+    taskwarrior = new TaskwarriorBundled(this);
+    
+    // FORCE DIAGNOSTIC DISPLAY IMMEDIATELY
+    taskOutput.setText("=== TW_C3 INITIALIZING ===\n\n");
+    taskOutput.append("TaskwarriorBundled initialized\n");
+    taskOutput.append("Getting diagnostic log...\n\n");
+    taskOutput.append(taskwarrior.getDiagnosticLog());
+    taskOutput.append("\n=== READY ===\n");
+    
+    // Set up buttons
+    addButton.setOnClickListener(v -> {
+        String taskDesc = newTaskInput.getText().toString().trim();
+        if (!taskDesc.isEmpty()) {
+            runTaskwarriorCommand("add", taskDesc);
+            newTaskInput.setText("");
         }
+    });
+    
+    debugButton.setOnClickListener(v -> {
+        taskOutput.setText("=== DIAGNOSTIC LOG ===\n\n");
+        taskOutput.append(taskwarrior.getDiagnosticLog());
+        taskOutput.append("\n=== RUNNING VERSION ===\n\n");
+        runTaskwarriorCommand("version");
+    });
+    
+    refreshButton.setOnClickListener(v -> {
+        runTaskwarriorCommand("next");
+    });
+    
+    // Initial test
+    runTaskwarriorCommand("version");
+}
+
+    
+    private void showDiagnosticLog() {
+        taskOutput.setText("=== TW_C3 DIAGNOSTIC LOG ===\n\n");
+        taskOutput.append(taskwarrior.getDiagnosticLog());
+        taskOutput.append("\n=== READY ===\n\n");
     }
     
-    private void updateUI(TextView tv, String text) {
-        runOnUiThread(() -> tv.setText(text));
-    }
-    
-    private void setClickHandler(TextView tv) {
-        runOnUiThread(() -> tv.setOnClickListener(v -> addTestTask(tv)));
-    }
-    
-    private void addTestTask(TextView tv) {
-        updateUI(tv, "Adding task...");
+    private void runTaskwarriorCommand(String... commands) {
+        String cmdString = String.join(" ", commands);
+        taskOutput.append("$ task " + cmdString + "\n");
         
         new Thread(() -> {
             try {
-                // Add a task
-                String result = taskHelper.addTask("Task from twC3 app");
+                ProcessBuilder pb = taskwarrior.createProcessBuilder(commands);
                 
-                // Get updated list
-                String tasks = taskHelper.listTasks();
+                Log.d(TAG, "Running: " + String.join(" ", pb.command()));
                 
-                final String message = "Task added!\n\n" +
-                                     "All tasks:\n" + tasks + "\n\n" +
-                                     "Tap to add another";
+                Process process = pb.start();
                 
-                updateUI(tv, message);
+                StringBuilder output = new StringBuilder();
+                String line;
+                
+                BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(process.getInputStream()));
+                while ((line = reader.readLine()) != null) {
+                    output.append(line).append("\n");
+                }
+                
+                BufferedReader errorReader = new BufferedReader(
+                    new InputStreamReader(process.getErrorStream()));
+                while ((line = errorReader.readLine()) != null) {
+                    output.append("ERROR: ").append(line).append("\n");
+                }
+                
+                int exitCode = process.waitFor();
+                output.append("Exit code: ").append(exitCode).append("\n");
+                
+                // Update UI on main thread
+                new Handler(Looper.getMainLooper()).post(() -> {
+                    taskOutput.append(output.toString());
+                    taskOutput.append("\n---\n");
+                    
+                    // Scroll to bottom
+                    scrollView.post(() -> scrollView.fullScroll(ScrollView.FOCUS_DOWN));
+                });
                 
             } catch (Exception e) {
-                updateUI(tv, "Error: " + e.getMessage());
+                Log.e(TAG, "Error running taskwarrior", e);
+                new Handler(Looper.getMainLooper()).post(() -> {
+                    taskOutput.append("ERROR: " + e.getMessage() + "\n");
+                    taskOutput.append("\n=== DIAGNOSTIC LOG ===\n");
+                    taskOutput.append(taskwarrior.getDiagnosticLog());
+                    taskOutput.append("\n---\n");
+                });
             }
         }).start();
     }
